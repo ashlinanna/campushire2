@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Job Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.6);
+            z-index: 1000;
+        }
+
+        nav h2 {
+            color: white;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #00d4ff;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d") no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+        }
+
+        .hero-content {
+            position: relative;
+            color: white;
+            max-width: 700px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            background: #00d4ff;
+            color: black;
+            text-decoration: none;
+            border-radius: 25px;
+            margin: 10px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: white;
+        }
+
+        /* Section */
+        section {
+            padding: 80px 50px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .card {
+            width: 300px;
+            padding: 30px;
+            border-radius: 15px;
+            background: #f4f4f4;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background: #111;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <h2>Student Job Portal</h2>
+    <div>
+        <a href="#student">Student</a>
+        <a href="#employer">Employer</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+    <div class="hero-content">
+        <h1>Part Time Job for Students</h1>
+        <p>
+            Find flexible part-time opportunities near your college.
+            Earn while you learn, gain real-world experience,
+            and build your future with confidence 💼✨
+        </p>
+        <a href="#student" class="btn">Get Started</a>
+    </div>
+</div>
+
+<!-- STUDENT SECTION -->
+<section id="student">
+    <h2 class="section-title">For Students</h2>
+    <p>Discover jobs based on your location and apply instantly.</p>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Register</h3>
+            <p>Create your profile and explore opportunities near you.</p>
+            <a href="/student_register" class="btn">Register</a>
+        </div>
+
+        <div class="card">
+            <h3>Login</h3>
+            <p>Access your dashboard and track your applications.</p>
+            <a href="/student_login" class="btn">Login</a>
+        </div>
+    </div>
+</section>
+
+<!-- EMPLOYER SECTION -->
+<section id="employer" style="background:#f9f9f9;">
+    <h2 class="section-title">For Employers</h2>
+    <p>Hire talented students for part-time roles easily.</p>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Register</h3>
+            <p>Create your employer account and post jobs.</p>
+            <a href="/employer_register" class="btn">Register</a>
+        </div>
+
+        <div class="card">
+            <h3>Login</h3>
+            <p>Manage job posts and review applicants.</p>
+            <a href="/employer_login" class="btn">Login</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2026 Student Job Portal | Built for Hackathon 🚀
+</footer>
+
+</body>
+</html>

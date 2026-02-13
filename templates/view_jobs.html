@@ -1,0 +1,20 @@
+<h2>Your Applications</h2>
+
+{% if applications %}
+    <ul>
+    {% for app in applications %}
+        <li>
+            {{ app[0] }} -
+            {% if app[1] == "Approved" %}
+                <span style="color:green;">🎉 You are Selected!</span>
+            {% elif app[1] == "Rejected" %}
+                <span style="color:red;">Rejected</span>
+            {% else %}
+                <span style="color:orange;">Pending</span>
+            {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No applications yet.</p>
+{% endif %}
