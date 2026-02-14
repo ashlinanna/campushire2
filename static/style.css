@@ -1,296 +1,201 @@
-/* ===================================================== */
+/* ========================= */
 /* GLOBAL RESET */
-/* ===================================================== */
+/* ========================= */
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
 }
+
+/* ========================= */
+/* BODY BACKGROUND */
+/* ========================= */
 
 body {
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(120deg, #667eea, #764ba2, #f7971e, #ffd200);
-  background-size: 300% 300%;
-  animation: gradientMove 15s ease infinite;
   min-height: 100vh;
+  background: linear-gradient(to right, #4e73df, #36b9cc);
 }
 
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
+/* ========================= */
+/* NAVBAR */
+/* ========================= */
 
-h2 {
-  text-align: center;
-  margin: 30px 0;
+.navbar {
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  padding: 15px 40px;
   color: white;
-  font-weight: 600;
-}
-
-/* ===================================================== */
-/* GLASS CONTAINER */
-/* ===================================================== */
-
-.glass {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(15px);
-  border-radius: 25px;
-  padding: 30px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  color: white;
-}
-
-/* ===================================================== */
-/* DASHBOARD CARDS */
-/* ===================================================== */
-
-.dashboard-grid {
-  display: flex;
-  gap: 30px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 50px 0;
-}
-
-.dashboard-card {
-  width: 260px;
-  padding: 30px;
-  border-radius: 25px;
-  text-align: center;
-  color: white;
-  transition: 0.4s;
-}
-
-.dashboard-card:hover {
-  transform: translateY(-12px) scale(1.05);
-}
-
-.card-blue {
-  background: linear-gradient(135deg, #2193b0, #6dd5ed);
-}
-
-.card-yellow {
-  background: linear-gradient(135deg, #f7971e, #ffd200);
-  color: black;
-}
-
-.card-purple {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-}
-
-.dashboard-card a {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 8px 20px;
-  background: white;
-  color: black;
-  border-radius: 25px;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-/* ===================================================== */
-/* JOB CARDS (Student Side) */
-/* ===================================================== */
-
-.job-container,
-.applications-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
-  padding: 20px;
-}
-
-.job-card,
-.app-card {
-  width: 320px;
-  padding: 20px;
-  border-radius: 20px;
-  background: rgba(255,255,255,0.2);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-  color: white;
-  transition: 0.3s;
-}
-
-.job-card:hover,
-.app-card:hover {
-  transform: translateY(-8px);
-}
-
-.job-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.shop-name {
-  background: white;
-  color: black;
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-size: 12px;
+.navbar h2 {
+  margin: 0;
+  font-weight: 600;
 }
 
-/* ===================================================== */
-/* BUTTONS */
-/* ===================================================== */
-
-.apply-btn,
-.applied-btn,
-button {
-  padding: 10px 20px;
-  border-radius: 25px;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.apply-btn {
-  background: white;
-  color: black;
-}
-
-.apply-btn:hover {
-  transform: scale(1.05);
-}
-
-.applied-btn {
-  background: #28B463;
+.nav-links a {
   color: white;
-  cursor: not-allowed;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
 }
 
-/* ===================================================== */
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* ========================= */
+/* CENTER CONTAINER */
+/* ========================= */
+
+.container {
+  min-height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ========================= */
+/* CARD STYLE */
+/* ========================= */
+
+.card {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  width: 400px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  text-align: center;
+}
+
+.card h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* ========================= */
+/* FORM INPUTS */
+/* ========================= */
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+textarea {
+  resize: none;
+  height: 120px;
+}
+
+/* ========================= */
+/* BUTTONS */
+/* ========================= */
+
+.btn, button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #4e73df;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn:hover, button:hover {
+  background: #2e59d9;
+}
+
+/* ========================= */
+/* DASHBOARD BUTTONS */
+/* ========================= */
+
+.dashboard-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* ========================= */
+/* TABLE CONTAINER */
+/* ========================= */
+
+.table-container {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  width: 80%;
+  margin: 40px auto;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background: #4e73df;
+  color: white;
+  padding: 12px;
+}
+
+td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+  background-color: #f2f2f2;
+}
+
+/* ========================= */
 /* STATUS BADGES */
-/* ===================================================== */
+/* ========================= */
 
 .status {
   padding: 6px 14px;
   border-radius: 20px;
   font-size: 12px;
   font-weight: bold;
-  display: inline-block;
-  margin-top: 8px;
   color: white;
 }
 
 .status.pending {
-  background: #f39c12;
+  background: #f6c23e;
 }
 
 .status.approved {
-  background: #2ecc71;
+  background: #1cc88a;
 }
 
 .status.rejected {
-  background: #e74c3c;
+  background: #e74a3b;
 }
 
-/* ===================================================== */
-/* LOGIN PAGE */
-/* ===================================================== */
-
-.login-wrapper {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.login-box {
-  width: 350px;
-  padding: 40px;
-}
-
-.login-box input {
-  width: 100%;
-  padding: 12px;
-  margin: 12px 0;
-  border-radius: 25px;
-  border: none;
-  outline: none;
-}
-
-.login-box button {
-  width: 100%;
-  margin-top: 10px;
-}
-
-/* ===================================================== */
-/* FORMS (Post Job / Register) */
-/* ===================================================== */
-
-.form-wrapper {
-  max-width: 600px;
-  margin: 60px auto;
-}
-
-.form-box input,
-.form-box textarea {
-  width: 100%;
-  padding: 12px;
-  margin: 12px 0;
-  border-radius: 20px;
-  border: none;
-  outline: none;
-}
-
-.form-box textarea {
-  height: 120px;
-  resize: none;
-}
-
-.form-box button {
-  width: 100%;
-}
-
-/* ===================================================== */
-/* TABLES (View Jobs / Applicants) */
-/* ===================================================== */
-
-.table-box {
-  max-width: 1000px;
-  margin: 60px auto;
-}
-
-.table-box table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-  color: white;
-}
-
-.table-box th,
-.table-box td {
-  padding: 12px;
-  text-align: center;
-}
-
-.table-box th {
-  background: rgba(255,255,255,0.3);
-}
-
-.table-box tr:nth-child(even) {
-  background: rgba(255,255,255,0.1);
-}
-
-.table-box tr:hover {
-  background: rgba(255,255,255,0.2);
-}
-
-/* ===================================================== */
+/* ========================= */
 /* RESPONSIVE */
-/* ===================================================== */
+/* ========================= */
 
 @media (max-width: 768px) {
-  .dashboard-card,
-  .job-card,
-  .app-card {
+  .card {
     width: 90%;
+  }
+
+  .table-container {
+    width: 95%;
   }
 }
