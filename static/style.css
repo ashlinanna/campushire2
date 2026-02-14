@@ -1,66 +1,296 @@
+/* ===================================================== */
+/* GLOBAL RESET */
+/* ===================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #f4f6f9;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(120deg, #667eea, #764ba2, #f7971e, #ffd200);
+  background-size: 300% 300%;
+  animation: gradientMove 15s ease infinite;
+  min-height: 100vh;
 }
 
-.navbar {
-    background-color: #2c3e50;
-    color: white;
-    padding: 15px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.navbar a {
-    color: white;
-    margin-left: 20px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.container {
-    padding: 40px;
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 h2 {
-    color: #2c3e50;
+  text-align: center;
+  margin: 30px 0;
+  color: white;
+  font-weight: 600;
 }
 
-form {
-    background: white;
-    padding: 25px;
-    border-radius: 8px;
-    width: 400px;
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+/* ===================================================== */
+/* GLASS CONTAINER */
+/* ===================================================== */
+
+.glass {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+  border-radius: 25px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  color: white;
 }
 
-input {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    margin-bottom: 15px;
+/* ===================================================== */
+/* DASHBOARD CARDS */
+/* ===================================================== */
+
+.dashboard-grid {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 50px 0;
 }
 
+.dashboard-card {
+  width: 260px;
+  padding: 30px;
+  border-radius: 25px;
+  text-align: center;
+  color: white;
+  transition: 0.4s;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-12px) scale(1.05);
+}
+
+.card-blue {
+  background: linear-gradient(135deg, #2193b0, #6dd5ed);
+}
+
+.card-yellow {
+  background: linear-gradient(135deg, #f7971e, #ffd200);
+  color: black;
+}
+
+.card-purple {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.dashboard-card a {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 20px;
+  background: white;
+  color: black;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ===================================================== */
+/* JOB CARDS (Student Side) */
+/* ===================================================== */
+
+.job-container,
+.applications-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  padding: 20px;
+}
+
+.job-card,
+.app-card {
+  width: 320px;
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  color: white;
+  transition: 0.3s;
+}
+
+.job-card:hover,
+.app-card:hover {
+  transform: translateY(-8px);
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.shop-name {
+  background: white;
+  color: black;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+/* ===================================================== */
+/* BUTTONS */
+/* ===================================================== */
+
+.apply-btn,
+.applied-btn,
 button {
-    background-color: #3498db;
-    color: white;
-    border: none;
-    padding: 10px;
-    width: 100%;
-    cursor: pointer;
-    border-radius: 5px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
-button:hover {
-    background-color: #2980b9;
+.apply-btn {
+  background: white;
+  color: black;
 }
 
-.job-card {
-    background: white;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 3px 8px rgba(0,0,0,0.1);
+.apply-btn:hover {
+  transform: scale(1.05);
+}
+
+.applied-btn {
+  background: #28B463;
+  color: white;
+  cursor: not-allowed;
+}
+
+/* ===================================================== */
+/* STATUS BADGES */
+/* ===================================================== */
+
+.status {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 8px;
+  color: white;
+}
+
+.status.pending {
+  background: #f39c12;
+}
+
+.status.approved {
+  background: #2ecc71;
+}
+
+.status.rejected {
+  background: #e74c3c;
+}
+
+/* ===================================================== */
+/* LOGIN PAGE */
+/* ===================================================== */
+
+.login-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  width: 350px;
+  padding: 40px;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+}
+
+.login-box button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* ===================================================== */
+/* FORMS (Post Job / Register) */
+/* ===================================================== */
+
+.form-wrapper {
+  max-width: 600px;
+  margin: 60px auto;
+}
+
+.form-box input,
+.form-box textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+}
+
+.form-box textarea {
+  height: 120px;
+  resize: none;
+}
+
+.form-box button {
+  width: 100%;
+}
+
+/* ===================================================== */
+/* TABLES (View Jobs / Applicants) */
+/* ===================================================== */
+
+.table-box {
+  max-width: 1000px;
+  margin: 60px auto;
+}
+
+.table-box table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  color: white;
+}
+
+.table-box th,
+.table-box td {
+  padding: 12px;
+  text-align: center;
+}
+
+.table-box th {
+  background: rgba(255,255,255,0.3);
+}
+
+.table-box tr:nth-child(even) {
+  background: rgba(255,255,255,0.1);
+}
+
+.table-box tr:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/* ===================================================== */
+/* RESPONSIVE */
+/* ===================================================== */
+
+@media (max-width: 768px) {
+  .dashboard-card,
+  .job-card,
+  .app-card {
+    width: 90%;
+  }
 }

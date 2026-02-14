@@ -1,11 +1,19 @@
-<h2>Post a Job</h2>
+<body>
 
-<form method="POST">
-    Job Title: <input type="text" name="title" required><br><br>
-    Salary: <input type="text" name="salary" required><br><br>
-    Timing: <input type="text" name="timing" required><br><br>
-    Description: <input type="text" name="description" required><br><br>
-    PIN Code: <input type="text" name="pin_code" required><br><br>
+<div class="form-wrapper">
+  <div class="glass form-box">
 
-    <button type="submit">Post Job</button>
-</form>
+    <h2>Post a Job</h2>
+
+    <form method="POST">
+      <input type="text" name="title" placeholder="Job Title" required>
+      <input type="text" name="salary" placeholder="Salary" required>
+      <input type="text" name="timing" placeholder="Timing" required>
+      <textarea name="description" placeholder="Job Description"></textarea>
+      <button type="submit">Post Job</button>
+    </form>
+
+  </div>
+</div>
+
+</body>

@@ -1,16 +1,41 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employer Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='employer.css') }}">
+</head>
+<body>
 
-{% block content %}
-<h2>Employer Dashboard</h2>
+<div class="dashboard-container">
 
-<div style="margin-top:30px;">
-    <a href="/post_job">
-        <button style="width:200px; margin-right:20px;">Post a Job</button>
-    </a>
+    <div class="top-bar">
+        <h2>🏢 Welcome, {{ session['employer_name'] }}</h2>
+        <a href="/logout" class="logout-btn">Logout</a>
+    </div>
 
-    <a href="/view_applicants">
-        <button style="width:200px;">View Applicants</button>
-    </a>
+    <div class="dashboard-cards">
+
+        <div class="card blue">
+            <h3>📝 Post a Job</h3>
+            <p>Create new job listings for students.</p>
+            <a href="/post_job" class="btn">Go</a>
+        </div>
+
+        <div class="card yellow">
+            <h3>📂 View Posted Jobs</h3>
+            <p>Manage your active job listings.</p>
+            <a href="/my_jobs" class="btn">Go</a>
+        </div>
+
+        <div class="card blue">
+            <h3>👩‍🎓 View Applications</h3>
+            <p>See students who applied to your jobs.</p>
+            <a href="/view_applications" class="btn">Go</a>
+        </div>
+
+    </div>
+
 </div>
 
-{% endblock %}
+</body>
+</html>

@@ -175,40 +175,56 @@ def view_jobs():
     if 'student_id' not in session:
         return redirect('/student_login')
 
-    student_id = session['student_id']
-    pin_code = session['student_pin']
-
     conn = get_db_connection()
     cursor = conn.cursor()
 
-    # Available jobs
-    cursor.execute(
-        "SELECT * FROM jobs WHERE pin_code = %s AND is_open = TRUE",
-        (pin_code,)
-    )
+    student_id = session['student_id']
+
+    # =========================
+    # Fetch All Available Jobs
+    # =========================
+    cursor.execute("""
+        SELECT j.id,
+               j.title,
+               j.salary,
+               j.timing,
+               j.description,
+               e.shop_name
+        FROM jobs j
+        JOIN employers e ON j.employer_id = e.id
+    """)
     jobs = cursor.fetchall()
 
-    # Student applications
-    cursor.execute(
-        """
-        SELECT jobs.title, applications.status
-        FROM applications
-        JOIN jobs ON applications.job_id = jobs.id
-        WHERE applications.student_id = %s
-        """,
-        (student_id,)
-    )
+    # =========================
+    # Fetch Student Applications
+    # =========================
+    cursor.execute("""
+        SELECT a.job_id,
+               j.title,
+               e.shop_name,
+               a.status
+        FROM applications a
+        JOIN jobs j ON a.job_id = j.id
+        JOIN employers e ON j.employer_id = e.id
+        WHERE a.student_id = %s
+    """, (student_id,))
+
     applications = cursor.fetchall()
+
+    # =========================
+    # Create Applied Job ID List
+    # =========================
+    applied_job_ids = [app[0] for app in applications]
 
     cursor.close()
     conn.close()
 
     return render_template(
-        'view_jobs.html',
+        "view_jobs.html",
         jobs=jobs,
-        applications=applications
+        applications=applications,
+        applied_job_ids=applied_job_ids
     )
-
 
 
 
@@ -225,16 +241,20 @@ def apply_job():
     conn = get_db_connection()
     cursor = conn.cursor()
 
-    try:
+    # Prevent duplicate applications
+    cursor.execute("""
+        SELECT * FROM applications
+        WHERE student_id = %s AND job_id = %s
+    """, (student_id, job_id))
+
+    existing = cursor.fetchone()
+
+    if not existing:
         cursor.execute("""
-            INSERT INTO applications (student_id, job_id)
-            VALUES (%s, %s)
+            INSERT INTO applications (student_id, job_id, status)
+            VALUES (%s, %s, 'pending')
         """, (student_id, job_id))
         conn.commit()
-        flash("Applied Successfully!")
-
-    except Exception:
-        flash("You have already applied for this job.")
 
     cursor.close()
     conn.close()

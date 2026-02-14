@@ -1,27 +1,29 @@
-{% extends "base.html" %}
+<body>
 
-{% block content %}
-<h2>Applicants</h2>
+<div class="glass table-box">
 
-{% if applicants %}
-    {% for applicant in applicants %}
-        <div class="job-card">
-            <p><strong>Name:</strong> {{ applicant[1] }}</p>
-            <p><strong>Email:</strong> {{ applicant[2] }}</p>
-            <p><strong>Job:</strong> {{ applicant[3] }}</p>
-            <p><strong>Status:</strong> {{ applicant[4] }}</p>
+  <h2>Applicants</h2>
 
-            {% if applicant[4] == 'Pending' %}
-            <form action="/update_status" method="POST">
-                <input type="hidden" name="application_id" value="{{ applicant[0] }}">
-                <button name="action" value="Approved">Approve</button>
-                <button name="action" value="Rejected" style="background-color:red;">Reject</button>
-            </form>
-            {% endif %}
-        </div>
+  <table>
+    <tr>
+      <th>Student Name</th>
+      <th>Email</th>
+      <th>Status</th>
+    </tr>
+
+    {% for app in applicants %}
+    <tr>
+      <td>{{ app[0] }}</td>
+      <td>{{ app[1] }}</td>
+      <td>
+        <span class="status {{ app[2]|lower }}">
+          {{ app[2] }}
+        </span>
+      </td>
+    </tr>
     {% endfor %}
-{% else %}
-    <p>No applicants yet.</p>
-{% endif %}
+  </table>
 
-{% endblock %}
+</div>
+
+</body>
