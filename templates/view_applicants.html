@@ -1,29 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Applicants</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
 <body>
 
-<div class="glass table-box">
+<!-- NAVBAR -->
+<div class="navbar">
+    <h2>CampusHire</h2>
+    <div class="nav-links">
+        <a href="/employer_dashboard">Dashboard</a>
+        <a href="/post_job">Post Job</a>
+        <a href="/logout">Logout</a>
+    </div>
+</div>
 
-  <h2>Applicants</h2>
+<!-- CONTENT -->
+<div class="page-container">
+    <div class="card">
+        <div class="page-title">Applicants</div>
 
-  <table>
-    <tr>
-      <th>Student Name</th>
-      <th>Email</th>
-      <th>Status</th>
-    </tr>
+        <table>
+            <tr>
+                <th>Student Name</th>
+                <th>Email</th>
+                <th>Job Title</th>
+                <th>Status</th>
+            </tr>
 
-    {% for app in applicants %}
-    <tr>
-      <td>{{ app[0] }}</td>
-      <td>{{ app[1] }}</td>
-      <td>
-        <span class="status {{ app[2]|lower }}">
-          {{ app[2] }}
-        </span>
-      </td>
-    </tr>
-    {% endfor %}
-  </table>
+            {% for app in applicants %}
+            <tr>
+                <td>{{ app[1] }}</td>
+                <td>{{ app[2] }}</td>
+                <td>{{ app[3] }}</td>
+                <td>
+                    <span class="status {{ app[4]|lower }}">
+                        {{ app[4] }}
+                    </span>
+                </td>
+            </tr>
+            {% endfor %}
 
+        </table>
+    </div>
 </div>
 
 </body>
+</html>

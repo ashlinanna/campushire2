@@ -1,23 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employer Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
 <body>
 
 <div class="navbar">
-    <h2>Job Portal</h2>
+    <h2>CampusHire</h2>
     <div class="nav-links">
-        <a href="/employer_dashboard">Dashboard</a>
+        <a href="/post_job">Post Job</a>
+        <a href="/view_applicants">Applicants</a>
         <a href="/logout">Logout</a>
     </div>
 </div>
 
-<div class="container">
+<div class="page-container">
     <div class="card">
-        <h2>🏢 Employer Dashboard</h2>
+        <div class="page-title">
+            Welcome, {{ session['employer_name'] }}
+        </div>
 
-        <div class="dashboard-buttons">
-            <a href="/post_job" class="btn">Post a Job</a>
-            <a href="/my_jobs" class="btn">View Posted Jobs</a>
-            <a href="/view_applicants" class="btn">View Applicants</a>
+        <div class="form-row">
+            <a href="/post_job">
+                <button>Post a Job</button>
+            </a>
+
+            <a href="/view_applicants">
+                <button>View Applicants</button>
+            </a>
         </div>
     </div>
 </div>
 
 </body>
+</html>

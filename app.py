@@ -143,28 +143,33 @@ def post_job():
         return redirect('/employer_login')
 
     if request.method == 'POST':
-        title = request.form['title']
-        salary = request.form['salary']
-        timing = request.form['timing']
-        description = request.form['description']
-        pin_code = request.form['pin_code']
+        try:
+            title = request.form.get('title')
+            salary = request.form.get('salary')
+            timing = request.form.get('timing')
+            description = request.form.get('description')
+            pin_code = request.form.get('pin_code')
 
-        employer_id = session['employer_id']
+            employer_id = session['employer_id']
 
-        conn = get_db_connection()
-        cursor = conn.cursor()
+            conn = get_db_connection()
+            cursor = conn.cursor()
 
-        cursor.execute("""
-            INSERT INTO jobs (employer_id, title, salary, timing, description, pin_code)
-            VALUES (%s, %s, %s, %s, %s, %s)
-        """, (employer_id, title, salary, timing, description, pin_code))
-        conn.commit()
+            cursor.execute("""
+                INSERT INTO jobs (employer_id, title, salary, timing, description, pin_code)
+                VALUES (%s, %s, %s, %s, %s, %s)
+            """, (employer_id, title, salary, timing, description, pin_code))
 
-        cursor.close()
-        conn.close()
+            conn.commit()
+            cursor.close()
+            conn.close()
 
-        flash("Job Posted Successfully!")
-        return redirect('/employer_dashboard')
+            flash("Job Posted Successfully!")
+            return redirect('/employer_dashboard')
+
+        except Exception as e:
+            print("ERROR:", e)
+            return "Something went wrong. Check terminal."
 
     return render_template('post_job.html')
 

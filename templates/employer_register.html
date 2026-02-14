@@ -1,9 +1,64 @@
-<h2>Employer Registration</h2>
-<form method="POST">
-    Shop Name: <input type="text" name="shop_name"><br><br>
-    Owner Name: <input type="text" name="owner_name"><br><br>
-    Email: <input type="email" name="email"><br><br>
-    Password: <input type="password" name="password"><br><br>
-    PIN Code: <input type="text" name="pin_code"><br><br>
-    <button type="submit">Register</button>
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employer Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body style="background: linear-gradient(135deg, #1e3c72, #2a5298); min-height:100vh; display:flex; justify-content:center; align-items:center;">
+
+    <div style="background:white; padding:50px; border-radius:18px; width:420px; box-shadow:0 20px 50px rgba(0,0,0,0.2);">
+
+        <h2 style="text-align:center; margin-bottom:25px; color:#2a5298;">
+            🏢 Employer Register
+        </h2>
+
+        <form method="POST">
+
+            <div style="margin-bottom:18px;">
+                <label>Shop Name</label>
+                <input type="text" name="shop_name" required
+                    style="width:100%; padding:12px; border-radius:8px; border:1px solid #ddd;">
+            </div>
+
+            <div style="margin-bottom:18px;">
+                <label>Owner Name</label>
+                <input type="text" name="owner_name" required
+                    style="width:100%; padding:12px; border-radius:8px; border:1px solid #ddd;">
+            </div>
+
+            <div style="margin-bottom:18px;">
+                <label>Email</label>
+                <input type="email" name="email" required
+                    style="width:100%; padding:12px; border-radius:8px; border:1px solid #ddd;">
+            </div>
+
+            <div style="margin-bottom:18px;">
+                <label>Password</label>
+                <input type="password" name="password" required
+                    style="width:100%; padding:12px; border-radius:8px; border:1px solid #ddd;">
+            </div>
+
+            <div style="margin-bottom:25px;">
+                <label>Pin Code</label>
+                <input type="text" name="pin_code" required
+                    style="width:100%; padding:12px; border-radius:8px; border:1px solid #ddd;">
+            </div>
+
+            <button type="submit"
+                style="width:100%; padding:14px; border:none; border-radius:10px; background:#ffd200; font-weight:600; cursor:pointer;">
+                Register
+            </button>
+
+        </form>
+
+        <p style="text-align:center; margin-top:20px;">
+            Already have an account?
+            <a href="/employer_login" style="color:#2a5298; text-decoration:none; font-weight:500;">
+                Login here
+            </a>
+        </p>
+
+    </div>
+
+</body>
+</html>

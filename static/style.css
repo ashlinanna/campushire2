@@ -1,181 +1,194 @@
-/* ========================= */
+/* ===================================== */
 /* GLOBAL RESET */
-/* ========================= */
+/* ===================================== */
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
 }
-
-/* ========================= */
-/* BODY BACKGROUND */
-/* ========================= */
 
 body {
   min-height: 100vh;
-  background: linear-gradient(to right, #4e73df, #36b9cc);
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: #333;
 }
 
-/* ========================= */
+/* ===================================== */
 /* NAVBAR */
-/* ========================= */
+/* ===================================== */
 
 .navbar {
-  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-  padding: 15px 40px;
-  color: white;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 18px 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: white;
+  backdrop-filter: blur(8px);
 }
 
 .navbar h2 {
-  margin: 0;
   font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 .nav-links a {
   color: white;
-  margin-left: 20px;
   text-decoration: none;
+  margin-left: 30px;
   font-weight: 500;
+  transition: 0.3s ease;
 }
 
 .nav-links a:hover {
-  text-decoration: underline;
+  color: #ffd200;
 }
 
-/* ========================= */
-/* CENTER CONTAINER */
-/* ========================= */
+/* ===================================== */
+/* PAGE CONTAINER */
+/* ===================================== */
 
-.container {
-  min-height: 85vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.page-container {
+  max-width: 1100px;
+  margin: 70px auto;
+  padding: 0 20px;
 }
 
-/* ========================= */
-/* CARD STYLE */
-/* ========================= */
+/* ===================================== */
+/* CARD */
+/* ===================================== */
 
 .card {
   background: white;
-  padding: 40px;
-  border-radius: 15px;
-  width: 400px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-  text-align: center;
+  padding: 45px;
+  border-radius: 18px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.18);
+  transition: 0.3s ease;
 }
 
-.card h2 {
-  margin-bottom: 20px;
-  color: #333;
+.card:hover {
+  transform: translateY(-3px);
 }
 
-/* ========================= */
-/* FORM INPUTS */
-/* ========================= */
+/* ===================================== */
+/* PAGE TITLE */
+/* ===================================== */
 
-input, textarea {
+.page-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #2a5298;
+}
+
+/* ===================================== */
+/* FORM LAYOUT */
+/* ===================================== */
+
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.form-group {
+  flex: 1;
+  margin-bottom: 22px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #555;
+}
+
+input,
+textarea {
   width: 100%;
-  padding: 12px;
-  margin: 12px 0;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #2a5298;
+  box-shadow: 0 0 0 3px rgba(42,82,152,0.1);
   outline: none;
 }
 
 textarea {
-  resize: none;
   height: 120px;
+  resize: none;
 }
 
-/* ========================= */
+/* ===================================== */
 /* BUTTONS */
-/* ========================= */
+/* ===================================== */
 
-.btn, button {
-  display: block;
-  width: 100%;
-  padding: 12px;
-  border-radius: 8px;
+button {
+  padding: 14px 28px;
+  border-radius: 10px;
   border: none;
-  background: #4e73df;
-  color: white;
+  background: #ffd200;
   font-weight: 600;
   cursor: pointer;
   transition: 0.3s ease;
-  text-decoration: none;
-  text-align: center;
+  font-size: 14px;
 }
 
-.btn:hover, button:hover {
-  background: #2e59d9;
+button:hover {
+  background: #ffcc00;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-/* ========================= */
-/* DASHBOARD BUTTONS */
-/* ========================= */
-
-.dashboard-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-top: 20px;
-}
-
-/* ========================= */
-/* TABLE CONTAINER */
-/* ========================= */
-
-.table-container {
-  background: white;
-  padding: 30px;
-  border-radius: 15px;
-  width: 80%;
-  margin: 40px auto;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-}
+/* ===================================== */
+/* TABLE STYLING */
+/* ===================================== */
 
 table {
   width: 100%;
   border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 14px;
 }
 
 th {
-  background: #4e73df;
+  background: #2a5298;
   color: white;
-  padding: 12px;
+  padding: 16px;
+  text-align: left;
+  font-weight: 500;
 }
 
 td {
-  padding: 12px;
-  text-align: center;
-  border-bottom: 1px solid #ddd;
+  padding: 16px;
+  border-bottom: 1px solid #eee;
 }
 
 tr:hover {
-  background-color: #f2f2f2;
+  background-color: #f8f9fa;
 }
 
-/* ========================= */
+/* ===================================== */
 /* STATUS BADGES */
-/* ========================= */
+/* ===================================== */
 
 .status {
   padding: 6px 14px;
-  border-radius: 20px;
+  border-radius: 30px;
   font-size: 12px;
-  font-weight: bold;
+  font-weight: 600;
   color: white;
 }
 
 .status.pending {
-  background: #f6c23e;
+  background: #f39c12;
 }
 
 .status.approved {
@@ -186,16 +199,27 @@ tr:hover {
   background: #e74a3b;
 }
 
-/* ========================= */
+/* ===================================== */
 /* RESPONSIVE */
-/* ========================= */
+/* ===================================== */
 
 @media (max-width: 768px) {
-  .card {
-    width: 90%;
+
+  .form-row {
+    flex-direction: column;
   }
 
-  .table-container {
-    width: 95%;
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
   }
+
+  .nav-links a {
+    margin-left: 15px;
+  }
+
+  .card {
+    padding: 30px;
+  }
+
 }

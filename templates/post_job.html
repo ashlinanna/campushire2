@@ -1,19 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Post Job</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
 <body>
 
-<div class="form-wrapper">
-  <div class="glass form-box">
+<div class="navbar">
+    <h2>CampusHire</h2>
+    <div class="nav-links">
+        <a href="/employer_dashboard">Dashboard</a>
+        <a href="/view_applicants">Applicants</a>
+        <a href="/logout">Logout</a>
+    </div>
+</div>
 
-    <h2>Post a Job</h2>
+<div class="page-container">
+    <div class="card">
+        <div class="page-title">Post a New Job</div>
 
-    <form method="POST">
-      <input type="text" name="title" placeholder="Job Title" required>
-      <input type="text" name="salary" placeholder="Salary" required>
-      <input type="text" name="timing" placeholder="Timing" required>
-      <textarea name="description" placeholder="Job Description"></textarea>
-      <button type="submit">Post Job</button>
-    </form>
+        <form method="POST">
 
-  </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Job Title</label>
+                    <input type="text" name="title" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Salary</label>
+                    <input type="text" name="salary" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Working Hours</label>
+                <input type="text" name="timing" required>
+            </div>
+
+            <div class="form-group">
+                <label>Pin Code</label>
+                <input type="text" name="pin_code" required>
+            </div>
+
+            <div class="form-group">
+                <label>Description</label>
+                <textarea name="description"></textarea>
+            </div>
+
+            <button type="submit">Post Job</button>
+
+        </form>
+    </div>
 </div>
 
 </body>
+</html>

@@ -1,17 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employer Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
 <body>
 
-<div class="login-wrapper">
-  <div class="glass login-box">
+<div class="navbar">
+    <h2>CampusHire</h2>
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/student_login">Student</a>
+    </div>
+</div>
 
-    <h2>Employer Login</h2>
+<div class="center-container">
+    <div class="card">
+        <h2>🏢 Employer Login</h2>
 
-    <form method="POST">
-      <input type="email" name="email" placeholder="Email" required>
-      <input type="password" name="password" placeholder="Password" required>
-      <button type="submit">Login</button>
-    </form>
+        <form method="POST">
+            <input type="email" name="email" placeholder="Enter Email" required>
+            <input type="password" name="password" placeholder="Enter Password" required>
+            <button type="submit">Login</button>
+        </form>
 
-  </div>
+        <p style="margin-top:15px;">
+            New employer? <a href="/employer_register" style="color:#2a5298;">Register here</a>
+        </p>
+    </div>
 </div>
 
 </body>
+</html>
