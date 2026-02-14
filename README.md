@@ -9,8 +9,8 @@
 ### Team Name: Campus Connectors
 
 ### Team Members
-- Ashlin Anna – [Your College Name]
-- [Teammate Name] – [College Name]
+- Ashlin Anna – SSET
+- Gourinandana P – SSET
 
 ### Hosted Project Link
 https://campushire2.onrender.com
